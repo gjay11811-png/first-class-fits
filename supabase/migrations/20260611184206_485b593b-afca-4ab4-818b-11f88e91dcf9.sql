@@ -1,0 +1,2 @@
+ALTER TABLE public.products ADD COLUMN IF NOT EXISTS gender text NOT NULL DEFAULT 'unisex' CHECK (gender IN ('mens','womens','unisex','kids'));
+CREATE INDEX IF NOT EXISTS products_gender_idx ON public.products(gender);

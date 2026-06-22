@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /account
+Disallow: /auth
+Disallow: /checkout
+Disallow: /cart
+Disallow: /wishlist
+
+Sitemap: https://firstclassfits.lovable.app/sitemap.xml

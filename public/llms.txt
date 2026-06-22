@@ -1,0 +1,19 @@
+# First Class Fits
+
+> Premium fashion, footwear, sportswear, accessories, and electronics — a modern, dark-themed ecommerce storefront.
+
+First Class Fits sells curated apparel (t-shirts, hoodies, jackets, shorts, pants, socks), trainers and sneakers, sunglasses, watches, headphones, smartphones, accessories, and seasonal drops.
+
+## Pages
+
+- [Home](/): Featured products, new arrivals, best sellers, limited offers.
+- [Shop](/shop): Full catalog with category and search filtering.
+- [About](/about): Brand story and values.
+- [Contact](/contact): Customer support and inquiries.
+- [FAQ](/faq): Common questions about ordering and products.
+- [Shipping](/shipping): Shipping policies and timelines.
+- [Returns](/returns): Returns and refund policy.
+
+## Optional
+
+- [Sign in](/auth): Customer account access.
