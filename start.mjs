@@ -2,7 +2,14 @@ import { createServer } from "node:http";
 
 const port = parseInt(process.env.PORT || "3000", 10);
 
-const { default: handler } = await import("./dist/server/server.js");
+let handler;
+try {
+  ({ default: handler } = await import("./dist/server/server.js"));
+} catch (err) {
+  console.error("FATAL: could not load ./dist/server/server.js — did the build run?");
+  console.error(err);
+  process.exit(1);
+}
 
 const server = createServer(async (req, res) => {
   try {
@@ -44,4 +51,4 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(port, () => console.log(`Listening on port ${port}`));
+server.listen(port, "0.0.0.0", () => console.log(`Listening on 0.0.0.0:${port}`));
