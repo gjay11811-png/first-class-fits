@@ -1,10 +1,20 @@
 import { createServer } from "node:http";
+import { existsSync } from "node:fs";
+
+console.log("BOOT: start.mjs is running");
+console.log("BOOT: cwd =", process.cwd());
+console.log("BOOT: PORT env =", process.env.PORT);
 
 const port = parseInt(process.env.PORT || "3000", 10);
 
+const serverPath = "./dist/server/server.js";
+console.log("BOOT: dist/server/server.js exists?", existsSync(serverPath));
+
 let handler;
 try {
-  ({ default: handler } = await import("./dist/server/server.js"));
+  console.log("BOOT: importing server module...");
+  ({ default: handler } = await import(serverPath));
+  console.log("BOOT: server module imported OK");
 } catch (err) {
   console.error("FATAL: could not load ./dist/server/server.js — did the build run?");
   console.error(err);
