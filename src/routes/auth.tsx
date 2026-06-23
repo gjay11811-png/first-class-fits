@@ -1,4 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
@@ -61,23 +62,6 @@ function AuthPage() {
     }
   };
 
-  const onGoogle = async () => {
-    setLoading(true);
-    // Native Supabase Google OAuth (no third-party gateway). Redirects back to
-    // /auth, where the restored session lands the user on their destination.
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth?redirect=${encodeURIComponent(redirect ?? "/")}`,
-      },
-    });
-    if (error) {
-      toast.error(error.message ?? "Google sign-in failed");
-      setLoading(false);
-    }
-    // On success the browser redirects to Google; nothing else to do here.
-  };
-
   return (
     <div className="min-h-[80vh] grid place-items-center px-4 py-12">
       <div className="w-full max-w-md">
@@ -91,18 +75,31 @@ function AuthPage() {
            "Enter your email and we'll send you a reset link."}
         </p>
 
-        {mode !== "reset" && (
-          <>
-            <button onClick={onGoogle} disabled={loading} className="mt-8 w-full border border-border py-3 text-sm font-semibold uppercase tracking-widest hover:border-primary disabled:opacity-50">
-              Continue with Google
-            </button>
-            <div className="my-6 flex items-center gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
-              <span className="flex-1 h-px bg-border" /> or <span className="flex-1 h-px bg-border" />
-            </div>
-          </>
-        )}
+        {/* Animated gold hairline with a travelling sheen — brand accent */}
+        <motion.div
+          aria-hidden
+          className="mx-auto mt-8 flex justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="relative h-px w-48 overflow-hidden">
+            <div className="absolute inset-0 gold-rule" />
+            <motion.span
+              className="absolute top-1/2 h-[3px] w-10 -translate-y-1/2 rounded-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, oklch(0.85 0.10 84 / 0.9), transparent)",
+                boxShadow: "0 0 10px 1px oklch(0.85 0.10 84 / 0.6)",
+              }}
+              initial={{ left: "-20%" }}
+              animate={{ left: ["-20%", "100%", "-20%"] }}
+              transition={{ duration: 4.5, ease: "easeInOut", repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
 
-        <form onSubmit={onSubmit} className="space-y-3">
+        <form onSubmit={onSubmit} className="mt-8 space-y-3">
           {mode === "signup" && (
             <Input label="Full name" value={name} onChange={setName} />
           )}
