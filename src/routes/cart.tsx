@@ -7,7 +7,7 @@ export const Route = createFileRoute("/cart")({
   head: () => ({
     meta: [
       { title: "Cart — First Class Fits" },
-      { name: "description", content: "Review the items in your First Class Fits cart and proceed to secure checkout with free UK shipping over £120." },
+      { name: "description", content: "Review the items in your First Class Fits cart and proceed to secure checkout with free shipping over £100." },
       { property: "og:title", content: "Your cart — First Class Fits" },
       { property: "og:description", content: "Review your selection and check out securely at First Class Fits." },
       { property: "og:url", content: "https://firstclassfits.co/cart" },

@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "First Class Fits — Designer fashion, watches, footwear & tech" },
-      { name: "description", content: "Curated designer fashion, luxury watches, premium footwear, sportswear and lifestyle electronics. Free UK shipping over £120. Same for US over £150." },
+      { name: "description", content: "Curated designer fashion, luxury watches, premium footwear, sportswear and lifestyle electronics. Free shipping over £100." },
       { property: "og:title", content: "First Class Fits — Designer fashion, watches, footwear & tech" },
       { property: "og:description", content: "Curated designer fashion, luxury watches, premium footwear, sportswear and electronics." },
       { property: "og:url", content: "https://firstclassfits.co/" },
@@ -231,7 +231,7 @@ function StatsBar() {
 // ── Trust strip ────────────────────────────────────────────────────────────
 function TrustStrip() {
   const items = [
-    { icon: Truck, text: "Free UK shipping over £120 / US £150" },
+    { icon: Truck, text: "Free shipping over £100" },
     { icon: ShieldCheck, text: "Secure 256-bit checkout" },
     { icon: RefreshCw, text: "30-day returns" },
     { icon: Sparkles, text: "Authenticated drops" },

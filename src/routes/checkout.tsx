@@ -6,9 +6,9 @@ import { useAuth } from "@/hooks/use-auth";
 import { formatPrice } from "@/lib/format";
 import { getStripe, getStripeEnvironment } from "@/lib/stripe";
 import { useState, useCallback, useMemo } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { createCheckoutSession } from "@/lib/checkout.functions";
+import { createCheckoutSession, createGuestCheckoutSession } from "@/lib/checkout.functions";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 
 export const Route = createFileRoute("/checkout")({
@@ -21,8 +21,8 @@ type Stage = "form" | "pay";
 function CheckoutPage() {
   const { items, subtotal } = useCart();
   const { user } = useAuth();
-  const navigate = useNavigate();
   const startCheckout = useServerFn(createCheckoutSession);
+  const startGuestCheckout = useServerFn(createGuestCheckoutSession);
   const [stage, setStage] = useState<Stage>("form");
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [form, setForm] = useState({
@@ -35,28 +35,26 @@ function CheckoutPage() {
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const shipping = subtotal >= 150 ? 0 : 12;
+  const shipping = subtotal >= 100 ? 0 : 6.99;
   const total = subtotal + shipping;
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
-    if (!user) {
-      toast.message("Please sign in to place your order.");
-      navigate({ to: "/auth", search: { redirect: "/checkout" } as never });
-      return;
-    }
     setSubmitting(true);
     try {
-      const result = await startCheckout({
-        data: {
-          items: items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
-          email: form.email,
-          shipping_address: { name: form.name, line1: form.line1, city: form.city, postal: form.postal, country: form.country },
-          returnUrl: `${window.location.origin}/order-success?session_id={CHECKOUT_SESSION_ID}`,
-          environment: getStripeEnvironment(),
-        },
-      });
+      const payload = {
+        items: items.map((i) => ({ productId: i.productId, quantity: i.quantity })),
+        email: form.email,
+        shipping_address: { name: form.name, line1: form.line1, city: form.city, postal: form.postal, country: form.country },
+        returnUrl: `${window.location.origin}/order-success?session_id={CHECKOUT_SESSION_ID}`,
+        environment: getStripeEnvironment(),
+      };
+      // Logged-in customers get a tracked order in their account; guests check
+      // out straight through Stripe (no account needed).
+      const result = user
+        ? await startCheckout({ data: payload })
+        : await startGuestCheckout({ data: payload });
       if ("error" in result) throw new Error(result.error);
       if (!result.clientSecret) throw new Error("Stripe did not return a client secret");
       setClientSecret(result.clientSecret);
@@ -83,6 +81,15 @@ function CheckoutPage() {
             <div className="space-y-6">
               <Section title="Contact">
                 <Input label="Email" type="email" required value={form.email} onChange={(v) => setForm({ ...form, email: v })} />
+                {!user && (
+                  <p className="text-xs text-muted-foreground">
+                    Checking out as a guest.{" "}
+                    <Link to="/auth" search={{ redirect: "/checkout" } as never} className="text-primary uppercase tracking-widest font-bold">
+                      Sign in
+                    </Link>{" "}
+                    to track this order in your account (optional).
+                  </p>
+                )}
               </Section>
               <Section title="Shipping address">
                 <Input label="Full name" required value={form.name} onChange={(v) => setForm({ ...form, name: v })} />
@@ -94,7 +101,7 @@ function CheckoutPage() {
                 <Input label="Country" required value={form.country} onChange={(v) => setForm({ ...form, country: v })} />
               </Section>
               <Section title="Payment">
-                <p className="text-xs text-muted-foreground">Secure card payment on the next step. Free UK shipping over £120 / US £150 — otherwise £12 standard shipping applies.</p>
+                <p className="text-xs text-muted-foreground">Secure card payment on the next step. Free shipping over £100 — otherwise £6.99 standard shipping applies.</p>
               </Section>
             </div>
             <aside className="border border-border p-6 h-fit space-y-4">

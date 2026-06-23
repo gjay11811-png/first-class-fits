@@ -277,7 +277,7 @@ function ProductPage() {
             <button onClick={buyNow} className="mt-3 w-full h-11 border border-border font-bold uppercase text-[11px] tracking-widest hover:border-primary">Buy it now</button>
 
             <div className="mt-8 grid grid-cols-3 gap-3 text-[10px] uppercase tracking-widest text-muted-foreground border-y border-border py-5">
-              <div className="flex items-center gap-2"><Truck className="size-4 text-primary" /> Free UK over £120 / US £150</div>
+              <div className="flex items-center gap-2"><Truck className="size-4 text-primary" /> Free shipping over £100</div>
               <div className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Authentic</div>
               <div className="flex items-center gap-2"><RefreshCw className="size-4 text-primary" /> 30-day returns</div>
             </div>

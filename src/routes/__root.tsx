@@ -61,7 +61,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "First Class Fits — Premium fashion, footwear & tech" },
-      { name: "description", content: "First Class Fits — premium fashion, footwear, sportswear, electronics and accessories. Free UK shipping over £120. Same for US over £150." },
+      { name: "description", content: "First Class Fits — premium fashion, footwear, sportswear, electronics and accessories. Free shipping over £100." },
       { name: "author", content: "First Class Fits" },
       { name: "theme-color", content: "#1a1612" },
       { property: "og:site_name", content: "First Class Fits" },

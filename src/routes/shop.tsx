@@ -20,7 +20,7 @@ export const Route = createFileRoute("/shop")({
   head: () => ({
     meta: [
       { title: "Shop all — Premium apparel, footwear & tech | First Class Fits" },
-      { name: "description", content: "Shop the full First Class Fits collection: technical apparel, premium footwear, electronics and accessories. New drops every Friday with free UK shipping over £120." },
+      { name: "description", content: "Shop the full First Class Fits collection: technical apparel, premium footwear, electronics and accessories. New drops every Friday with free shipping over £100." },
       { property: "og:title", content: "Shop the full collection — First Class Fits" },
       { property: "og:description", content: "Technical apparel, premium footwear, lifestyle electronics and limited drops — curated weekly." },
       { property: "og:url", content: "https://firstclassfits.co/shop" },
