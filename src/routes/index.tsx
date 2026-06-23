@@ -32,8 +32,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "First Class Fits — Designer fashion, watches, footwear & tech" },
       { property: "og:description", content: "Curated designer fashion, luxury watches, premium footwear, sportswear and electronics." },
       { property: "og:url", content: "https://firstclassfits.co/" },
-      { property: "og:image", content: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1600&q=80" },
-      { name: "twitter:image", content: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1600&q=80" },
+      { property: "og:image", content: "https://firstclassfits.co/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: "https://firstclassfits.co/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://firstclassfits.co/" }],
     scripts: [{
