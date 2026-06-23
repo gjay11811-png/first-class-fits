@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { createServerFn } from "@tanstack/react-start";
 
-const BASE_URL = "https://firstclassfits.lovable.app";
+const BASE_URL = "https://www.firstclassfits.co";
 
 interface SitemapEntry {
   path: string;
