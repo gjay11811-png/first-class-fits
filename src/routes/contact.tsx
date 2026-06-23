@@ -22,7 +22,7 @@ function ContactPage() {
     <div className="max-w-2xl mx-auto px-6 py-16">
       <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
       <h1 className="font-display text-5xl uppercase tracking-tighter mt-3">Client services</h1>
-      <p className="mt-4 text-sm text-muted-foreground">We respond within 24 hours. Or email <a className="text-primary" href="mailto:hello@firstclassfits.com">hello@firstclassfits.com</a>.</p>
+      <p className="mt-4 text-sm text-muted-foreground">We respond within 24 hours. Or email <a className="text-primary" href="mailto:hello@firstclassfits.co">hello@firstclassfits.co</a>.</p>
       {sent ? (
         <div className="mt-10 p-6 border border-primary text-sm">Thanks — we'll be in touch shortly.</div>
       ) : (

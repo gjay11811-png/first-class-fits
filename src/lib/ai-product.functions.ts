@@ -35,7 +35,11 @@ export const generateProductListing = createServerFn({ method: "POST" })
     if (!roleRow) throw new Error("Forbidden: admin only");
 
     const key = process.env.LOVABLE_API_KEY;
-    if (!key) throw new Error("Missing LOVABLE_API_KEY");
+    if (!key) {
+      throw new Error(
+        "AI description generation isn't set up. Fill in the product details manually, or add an AI provider key to enable it.",
+      );
+    }
 
     const userPrompt = `Analyse this product image and generate the full listing.${data.hint ? ` Additional context: ${data.hint}` : ""}`;
 
