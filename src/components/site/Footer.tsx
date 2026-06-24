@@ -57,13 +57,15 @@ export function Footer() {
               <li><Link to="/shipping" className="hover:text-primary">Shipping</Link></li>
               <li><Link to="/returns" className="hover:text-primary">Returns</Link></li>
               <li><Link to="/faq" className="hover:text-primary">FAQ</Link></li>
+              <li><Link to="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-primary">Terms &amp; Conditions</Link></li>
             </ul>
           </div>
           <div className="md:col-span-3">
             <h4 className="text-[11px] uppercase tracking-widest font-bold mb-4">Trust</h4>
             <div className="flex flex-wrap gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
               <span className="border border-border px-2 py-1">Secure 256-bit</span>
-              <span className="border border-border px-2 py-1">Authentic</span>
+              <span className="border border-border px-2 py-1">Quality Checked</span>
               <span className="border border-border px-2 py-1">Free Returns</span>
               <span className="border border-border px-2 py-1">Global Shipping</span>
             </div>

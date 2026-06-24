@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as UnsubscribeRouteImport } from './routes/unsubscribe'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ShippingRouteImport } from './routes/shipping'
 import { Route as ReturnsRouteImport } from './routes/returns'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OrderSuccessRouteImport } from './routes/order-success'
 import { Route as MembersRouteImport } from './routes/members'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -47,6 +49,11 @@ const UnsubscribeRoute = UnsubscribeRouteImport.update({
   path: '/unsubscribe',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -65,6 +72,11 @@ const ShippingRoute = ShippingRouteImport.update({
 const ReturnsRoute = ReturnsRouteImport.update({
   id: '/returns',
   path: '/returns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OrderSuccessRoute = OrderSuccessRouteImport.update({
@@ -189,10 +201,12 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/members': typeof MembersRoute
   '/order-success': typeof OrderSuccessRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shipping': typeof ShippingRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/orders': typeof AdminOrdersRoute
@@ -217,10 +231,12 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/members': typeof MembersRoute
   '/order-success': typeof OrderSuccessRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shipping': typeof ShippingRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/orders': typeof AdminOrdersRoute
@@ -247,10 +263,12 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/members': typeof MembersRoute
   '/order-success': typeof OrderSuccessRoute
+  '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shipping': typeof ShippingRoute
   '/shop': typeof ShopRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/unsubscribe': typeof UnsubscribeRoute
   '/wishlist': typeof WishlistRoute
   '/admin/orders': typeof AdminOrdersRoute
@@ -278,10 +296,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/members'
     | '/order-success'
+    | '/privacy'
     | '/returns'
     | '/shipping'
     | '/shop'
     | '/sitemap.xml'
+    | '/terms'
     | '/unsubscribe'
     | '/wishlist'
     | '/admin/orders'
@@ -306,10 +326,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/members'
     | '/order-success'
+    | '/privacy'
     | '/returns'
     | '/shipping'
     | '/shop'
     | '/sitemap.xml'
+    | '/terms'
     | '/unsubscribe'
     | '/wishlist'
     | '/admin/orders'
@@ -335,10 +357,12 @@ export interface FileRouteTypes {
     | '/faq'
     | '/members'
     | '/order-success'
+    | '/privacy'
     | '/returns'
     | '/shipping'
     | '/shop'
     | '/sitemap.xml'
+    | '/terms'
     | '/unsubscribe'
     | '/wishlist'
     | '/admin/orders'
@@ -365,10 +389,12 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   MembersRoute: typeof MembersRoute
   OrderSuccessRoute: typeof OrderSuccessRoute
+  PrivacyRoute: typeof PrivacyRoute
   ReturnsRoute: typeof ReturnsRoute
   ShippingRoute: typeof ShippingRoute
   ShopRoute: typeof ShopRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   UnsubscribeRoute: typeof UnsubscribeRoute
   WishlistRoute: typeof WishlistRoute
   EmailUnsubscribeRoute: typeof EmailUnsubscribeRoute
@@ -394,6 +420,13 @@ declare module '@tanstack/react-router' {
       path: '/unsubscribe'
       fullPath: '/unsubscribe'
       preLoaderRoute: typeof UnsubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -422,6 +455,13 @@ declare module '@tanstack/react-router' {
       path: '/returns'
       fullPath: '/returns'
       preLoaderRoute: typeof ReturnsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/order-success': {
@@ -600,10 +640,12 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   MembersRoute: MembersRoute,
   OrderSuccessRoute: OrderSuccessRoute,
+  PrivacyRoute: PrivacyRoute,
   ReturnsRoute: ReturnsRoute,
   ShippingRoute: ShippingRoute,
   ShopRoute: ShopRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   UnsubscribeRoute: UnsubscribeRoute,
   WishlistRoute: WishlistRoute,
   EmailUnsubscribeRoute: EmailUnsubscribeRoute,

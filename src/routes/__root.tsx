@@ -66,7 +66,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1a1612" },
       { property: "og:site_name", content: "First Class Fits" },
       { property: "og:title", content: "First Class Fits — Premium fashion, footwear & tech" },
-      { property: "og:description", content: "Designer apparel, Swiss-grade timepieces, premium footwear and lifestyle tech — authenticated and curated weekly." },
+      { property: "og:description", content: "Elevated apparel, premium timepieces, considered footwear and lifestyle tech — curated weekly." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://firstclassfits.co/" },
       { property: "og:image", content: "https://firstclassfits.co/og-image.jpg" },
@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:image:alt", content: "First Class Fits — premium fashion, footwear & tech" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "First Class Fits — Premium fashion, footwear & tech" },
-      { name: "twitter:description", content: "Designer apparel, timepieces, footwear and lifestyle tech — authenticated and curated weekly." },
+      { name: "twitter:description", content: "Elevated apparel, timepieces, footwear and lifestyle tech — curated weekly." },
       { name: "twitter:image", content: "https://firstclassfits.co/og-image.jpg" },
     ],
     links: [

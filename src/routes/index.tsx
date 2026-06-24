@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchCategories, fetchProducts } from "@/lib/products";
 import { ProductCard } from "@/components/site/ProductCard";
 import { Countdown } from "@/components/site/Countdown";
-import { ArrowRight, Star, Truck, ShieldCheck, RefreshCw, Sparkles, Package, Award } from "lucide-react";
+import { ArrowRight, Truck, ShieldCheck, RefreshCw, Sparkles, Package } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { AnimateIn, StaggerContainer, fadeUpItem, RevealImage } from "@/components/site/AnimateIn";
@@ -14,14 +14,14 @@ const homeFaq = [
   { q: "When will my order ship?", a: "Standard orders dispatch within 48 hours. Limited drops may take up to 5 business days." },
   { q: "Do you ship internationally?", a: "Yes. We ship from the UK with tracked priority delivery. Same service for the US. Duties calculated at checkout." },
   { q: "What is your returns policy?", a: "Free 30-day returns on full-price items in original condition. Sale items can be exchanged within 14 days." },
-  { q: "Are your products authentic?", a: "Every item undergoes a triple-stage verification. NFC chips embedded in footwear and electronics verify ledger entry." },
+  { q: "Do you check the quality of your products?", a: "Yes. We source carefully and quality-check every item before it ships. If anything isn't as described, our 30-day returns policy means you're fully covered." },
   { q: "How do I track my order?", a: "You'll receive an email with a tracking link as soon as your order dispatches. Sign in to your account to track all orders." },
 ];
 
-const DESIGNER_BRANDS = [
-  "Gucci", "Off-White", "Moncler", "Stone Island", "Burberry",
-  "Balenciaga", "Prada", "Dior", "Saint Laurent", "Bottega Veneta",
-  "Canada Goose", "Palm Angels",
+const MARQUEE_WORDS = [
+  "Outerwear", "Footwear", "Timepieces", "Technical", "Sportswear",
+  "Accessories", "Lifestyle Tech", "Eyewear", "Knitwear", "Tailoring",
+  "Denim", "Loungewear",
 ];
 
 export const Route = createFileRoute("/")({
@@ -145,7 +145,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
         >
-          Designer apparel, Swiss-grade timepieces, premium footwear and lifestyle technology — authenticated and curated weekly.
+          Elevated apparel, premium timepieces, considered footwear and lifestyle technology — curated weekly.
         </motion.p>
 
         <motion.div
@@ -185,11 +185,11 @@ function BrandMarquee() {
   return (
     <section className="border-y border-border bg-surface/30 py-7 overflow-hidden">
       <p className="text-center text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-5">
-        The houses we carry
+        Inside the edit
       </p>
       <div className="relative flex overflow-hidden">
         <div className="flex shrink-0 items-center animate-marquee whitespace-nowrap">
-          {[...DESIGNER_BRANDS, ...DESIGNER_BRANDS].map((b, i) => (
+          {[...MARQUEE_WORDS, ...MARQUEE_WORDS].map((b, i) => (
             <span key={i} className="font-serif text-2xl sm:text-3xl text-foreground/40 hover:text-primary transition-colors duration-300 px-8 sm:px-12">
               {b}
             </span>
@@ -206,10 +206,10 @@ function BrandMarquee() {
 // ── Stats bar ──────────────────────────────────────────────────────────────
 function StatsBar() {
   const stats = [
-    { icon: Package, value: 2400, suffix: "+", label: "Orders delivered" },
-    { icon: Award, value: 100, suffix: "%", label: "Authenticated" },
-    { icon: ShieldCheck, value: 48, suffix: "h", label: "Avg. dispatch" },
-    { icon: Star, value: 4800, suffix: "+", label: "Members worldwide" },
+    { icon: Package, value: 110, suffix: "+", label: "Pieces in the edit" },
+    { icon: Truck, value: 48, suffix: "h", label: "Average dispatch" },
+    { icon: RefreshCw, value: 30, suffix: "-day", label: "Free returns" },
+    { icon: ShieldCheck, value: 256, suffix: "-bit", label: "Secure checkout" },
   ];
   return (
     <StaggerContainer className="border-b border-border" stagger={0.1} delayStart={0.1}>
@@ -234,7 +234,7 @@ function TrustStrip() {
     { icon: Truck, text: "Free shipping over £100" },
     { icon: ShieldCheck, text: "Secure 256-bit checkout" },
     { icon: RefreshCw, text: "30-day returns" },
-    { icon: Sparkles, text: "Authenticated drops" },
+    { icon: Sparkles, text: "Curated weekly" },
   ];
   return (
     <StaggerContainer className="border-b border-border bg-surface/40" stagger={0.07}>
@@ -394,12 +394,12 @@ function FeaturedCollections() {
   );
 }
 
-// ── Reviews ─────────────────────────────────────────────────────────────────
+// ── Brand pillars ────────────────────────────────────────────────────────────
 function ReviewsSection() {
-  const reviews = [
-    { name: "Marcus V.", role: "Verified Collector", body: "The attention to detail on the seams and technical waterproofing is genuine first-class quality.", rating: 5 },
-    { name: "Elena G.", role: "Archival Specialist", body: "Finally a brand that understands luxury isn't about logos — it's about material science and silhouette.", rating: 5 },
-    { name: "Julian R.", role: "Creative Director", body: "The watch selection rivals dedicated horology boutiques. Aesthetic and provenance in perfect balance.", rating: 5 },
+  const pillars = [
+    { icon: Sparkles, title: "Curated, not crowded", body: "Every piece is hand-selected for material, silhouette and longevity — no filler, no noise." },
+    { icon: ShieldCheck, title: "Sourced with care", body: "We stand behind everything we ship. Each order is quality-checked before it leaves us." },
+    { icon: Truck, title: "Considered service", body: "Tracked, insured delivery and a 30-day return window on every full-price order." },
   ];
   const directions: ("left" | "up" | "right")[] = ["left", "up", "right"];
   return (
@@ -408,26 +408,18 @@ function ReviewsSection() {
         <AnimateIn className="text-center mb-14" blur={false}>
           <div className="flex items-center justify-center gap-3 mb-3">
             <span className="w-8 h-px bg-primary" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Testimonials</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-primary">Our promise</span>
             <span className="w-8 h-px bg-primary" />
           </div>
-          <h2 className="font-serif text-4xl sm:text-5xl font-light tracking-tight">The verdict</h2>
+          <h2 className="font-serif text-4xl sm:text-5xl font-light tracking-tight">Why First Class Fits</h2>
         </AnimateIn>
         <div className="grid md:grid-cols-3 gap-6">
-          {reviews.map((r, i) => (
+          {pillars.map((p, i) => (
             <AnimateIn key={i} direction={directions[i]} delay={i * 0.1}>
               <div className="p-8 border border-border bg-background hover:border-primary/30 transition-colors duration-300 h-full">
-                <div className="flex gap-0.5 text-primary mb-5">
-                  {Array.from({ length: r.rating }).map((_, k) => <Star key={k} className="size-4 fill-current" />)}
-                </div>
-                <p className="font-serif text-xl leading-relaxed mb-7 italic text-foreground/90">"{r.body}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="size-10 rounded-full bg-surface-elevated border border-primary/20" />
-                  <div>
-                    <p className="font-semibold text-sm">{r.name}</p>
-                    <p className="text-xs text-muted-foreground">{r.role} <span className="ml-1 text-primary">✓ Verified</span></p>
-                  </div>
-                </div>
+                <p.icon className="size-6 text-primary mb-5" strokeWidth={1.5} />
+                <h3 className="font-serif text-2xl font-light tracking-tight mb-3">{p.title}</h3>
+                <p className="text-sm leading-relaxed text-foreground/70">{p.body}</p>
               </div>
             </AnimateIn>
           ))}
@@ -452,7 +444,7 @@ function InstagramGallery() {
       <div className="max-w-[1400px] mx-auto px-6">
         <AnimateIn className="flex items-baseline justify-between mb-8" blur={false}>
           <h3 className="font-serif text-2xl font-light">@firstclassfits</h3>
-          <span className="text-xs text-muted-foreground uppercase tracking-widest">Tagged in 4.2k posts</span>
+          <span className="text-xs text-muted-foreground uppercase tracking-widest">Follow us on Instagram</span>
         </AnimateIn>
         <StaggerContainer className="grid grid-cols-3 md:grid-cols-6 gap-2" stagger={0.06}>
           {imgs.map((src, i) => (

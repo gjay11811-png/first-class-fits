@@ -278,7 +278,7 @@ function ProductPage() {
 
             <div className="mt-8 grid grid-cols-3 gap-3 text-[10px] uppercase tracking-widest text-muted-foreground border-y border-border py-5">
               <div className="flex items-center gap-2"><Truck className="size-4 text-primary" /> Free shipping over £100</div>
-              <div className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Authentic</div>
+              <div className="flex items-center gap-2"><ShieldCheck className="size-4 text-primary" /> Quality checked</div>
               <div className="flex items-center gap-2"><RefreshCw className="size-4 text-primary" /> 30-day returns</div>
             </div>
 

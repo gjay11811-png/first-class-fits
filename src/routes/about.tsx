@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
       <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">About</p>
       <h1 className="font-display text-5xl uppercase tracking-tighter mt-3">Built for the elite.</h1>
       <p className="mt-6 text-base text-foreground/80 leading-relaxed">First Class Fits is a multi-category retailer at the intersection of technical performance and high-luxury aesthetic. We curate every drop personally — from sealed-seam outerwear to reference-tuned headphones — and partner directly with our makers to keep margins, and quality, honest.</p>
-      <p className="mt-4 text-base text-foreground/80 leading-relaxed">Every piece is authenticated, every order is tracked, and every customer gets the same first-class treatment. That's the standard.</p>
+      <p className="mt-4 text-base text-foreground/80 leading-relaxed">Every order is quality-checked and tracked, and every customer gets the same first-class treatment. That's the standard.</p>
     </article>
   ),
 });

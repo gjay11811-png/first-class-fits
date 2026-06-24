@@ -5,9 +5,9 @@ const items = [
   { q: "When will my order ship?", a: "Standard orders dispatch within 48 hours. Limited drops may take up to 5 business days." },
   { q: "Do you ship internationally?", a: "Yes. We ship from the UK with tracked priority delivery. Same service for the US. Duties calculated at checkout." },
   { q: "What is your returns policy?", a: "Free 30-day returns on full-price items in original condition. Sale items can be exchanged within 14 days." },
-  { q: "Are your products authentic?", a: "Every item undergoes a triple-stage verification. NFC chips embedded in footwear and electronics verify ledger entry." },
+  { q: "Do you check the quality of your products?", a: "Yes. We source carefully and quality-check every item before it ships. If anything isn't as described, our 30-day returns policy means you're fully covered." },
   { q: "How do I track my order?", a: "You'll receive an email with a tracking link as soon as your order dispatches." },
-  { q: "Do you offer gift wrapping?", a: "Yes — select gift wrap at checkout for £8." },
+  { q: "What payment methods do you accept?", a: "We accept all major credit and debit cards through our secure Stripe checkout." },
 ];
 
 export const Route = createFileRoute("/faq")({
