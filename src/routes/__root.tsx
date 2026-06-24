@@ -18,6 +18,7 @@ import { Footer } from "@/components/site/Footer";
 import { CartDrawer } from "@/components/site/CartDrawer";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { CursorGlow } from "@/components/site/CursorGlow";
+import { SupportChat } from "@/components/SupportChat";
 import { supabase } from "@/integrations/supabase/client";
 
 function NotFoundComponent() {
@@ -161,6 +162,7 @@ function RootComponent() {
           <Footer />
         </div>
         <CartDrawer />
+        <SupportChat />
         <Toaster theme="dark" position="bottom-right" />
       </CartProvider>
     </QueryClientProvider>
