@@ -39,7 +39,7 @@ export function SupportChat() {
     } catch {
       setMessages((m) => [
         ...m,
-        { role: "assistant", content: "Sorry — something went wrong on our end. Please email hello@firstclassfits.co and we'll help right away." },
+        { role: "assistant", content: "Sorry — something went wrong on our end. Please email gjay11811@gmail.com and we'll help right away." },
       ]);
     } finally {
       setSending(false);

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/privacy")({
 
       <div className="mt-8 space-y-8 text-sm leading-relaxed text-foreground/80">
         <Section title="Who we are">
-          <p>First Class Fits ("we", "us", "our") operates the store at firstclassfits.co. This policy explains what personal data we collect, how we use it, and the rights you have over it. If you have any questions, contact us at <a href="mailto:hello@firstclassfits.co" className="text-primary">hello@firstclassfits.co</a>.</p>
+          <p>First Class Fits ("we", "us", "our") operates the store at firstclassfits.co. This policy explains what personal data we collect, how we use it, and the rights you have over it. If you have any questions, contact us at <a href="mailto:gjay11811@gmail.com" className="text-primary">gjay11811@gmail.com</a>.</p>
         </Section>
 
         <Section title="What we collect">
@@ -41,7 +41,7 @@ export const Route = createFileRoute("/privacy")({
         </Section>
 
         <Section title="Your rights">
-          <p>Under UK data protection law you have the right to access, correct, or delete your personal data, to object to or restrict its processing, and to request a copy of it. To exercise any of these rights, email <a href="mailto:hello@firstclassfits.co" className="text-primary">hello@firstclassfits.co</a> and we will respond within one month.</p>
+          <p>Under UK data protection law you have the right to access, correct, or delete your personal data, to object to or restrict its processing, and to request a copy of it. To exercise any of these rights, email <a href="mailto:gjay11811@gmail.com" className="text-primary">gjay11811@gmail.com</a> and we will respond within one month.</p>
         </Section>
 
         <Section title="Cookies">

@@ -16,7 +16,7 @@ export const Route = createFileRoute("/terms")({
 
       <div className="mt-8 space-y-8 text-sm leading-relaxed text-foreground/80">
         <Section title="1. About these terms">
-          <p>These terms apply to your use of firstclassfits.co and to any order you place with First Class Fits ("we", "us", "our"). By placing an order you agree to these terms. If you have a question, contact <a href="mailto:hello@firstclassfits.co" className="text-primary">hello@firstclassfits.co</a>.</p>
+          <p>These terms apply to your use of firstclassfits.co and to any order you place with First Class Fits ("we", "us", "our"). By placing an order you agree to these terms. If you have a question, contact <a href="mailto:gjay11811@gmail.com" className="text-primary">gjay11811@gmail.com</a>.</p>
         </Section>
 
         <Section title="2. Products and pricing">
